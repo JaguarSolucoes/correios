@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "repository": "https://github.com/maxsolvid/correios.git",
-  "author": "Marcos Vidolin <marcosvidolin@gmail.com>",
+  "author": "maxsolvid",
   "license": "MIT",
   "devDependencies": {
     "typescript": "^3.9.7"
