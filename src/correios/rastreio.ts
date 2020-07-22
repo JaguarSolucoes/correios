@@ -2,7 +2,7 @@ import cheerio from 'cheerio';
 import axios from 'axios';
 
 interface Rastreio {
-  status: string,
+  eventos?: Evento[],
 };
 
 interface Evento {
@@ -15,8 +15,7 @@ interface Evento {
   destino?: string,
 };
 
-// TODO: return Promise<Rastreio>
-export const rastrear = async (codigo: string): Promise<Evento[] | any> => {
+export const rastrear = async (codigo: string): Promise<Rastreio> => {
   return axios({
     method: 'GET',
     url: `https://www.linkcorreios.com.br/${codigo}`,
@@ -25,20 +24,20 @@ export const rastrear = async (codigo: string): Promise<Evento[] | any> => {
       "cache-control": "no-cache",
     },
   }).then(resp => {
-    const htmlToJson: string = convertHtmlToEvento(resp.data);
-    console.log(htmlToJson);
+    const eventos: Evento[] = convertHtmlToEvento(resp.data);
+    return { eventos } as Rastreio;
   });
 };
 
 
-const convertHtmlToEvento: any = (htmlString: string) => {
+const convertHtmlToEvento = (htmlString: string): Evento[] => {
   const html = cheerio.load(htmlString);
   const elemArray: CheerioElement[] = [];
   html("ul.linha_status").each((_, elem) => {
     elemArray.push(elem);
   });
   const elemMap = elemArray.map((elem) => {
-    const mapObj: any = {};
+    const mapObj: Evento = {};
     html(elem)
       .find("li")
       .each((_, liElem) => {
@@ -63,4 +62,4 @@ const convertHtmlToEvento: any = (htmlString: string) => {
   });
 
   return elemMap.reverse();
-}
+};
