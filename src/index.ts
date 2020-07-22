@@ -65,6 +65,5 @@ const convertHtmlToEvento: any = (htmlString: string) => {
   return elemMap.reverse();
 }
 
-rastrear('NX007676498BR');
 
 export default rastrear;
