@@ -16,10 +16,5 @@ const rastrear = async (codigo: string): Promise<Rastreio | any> => {
   }).then(resp => {
     console.log(resp.data);
   });
-};
-
-
-rastrear('NX007676498BR');
-
 
 export default rastrear;
