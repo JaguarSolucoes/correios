@@ -16,7 +16,7 @@ interface Evento {
 };
 
 // TODO: return Promise<Rastreio>
-const rastrear = async (codigo: string): Promise<Rastreio | any> => {
+const rastrear = async (codigo: string): Promise<Evento[] | any> => {
   return axios({
     method: 'GET',
     url: `https://www.linkcorreios.com.br/${codigo}`,
