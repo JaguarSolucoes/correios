@@ -1,13 +1,13 @@
 {
-  "name": "correios",
+  "name": "rastreamento-correios",
   "version": "1.0.0",
-  "description": "Correios client",
+  "description": "Biblioteca para rastreamento de objetos dos correios.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "./node_modules/.bin/tsc"
   },
-  "repository": "https://github.com/maxsolvid/correios.git",
+  "repository": "https://github.com/maxsolvid/rastreamento-correios.git",
   "keywords": [
     "correios",
     "rastreio",
@@ -18,9 +18,9 @@
   "author": "maxsolvid",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/maxsolvid/correios/issues"
+    "url": "https://github.com/maxsolvid/rastreamento-correios/issues"
   },
-  "homepage": "https://github.com/maxsolvid/correios#readme",
+  "homepage": "https://github.com/maxsolvid/rastreamento-correios#readme",
   "devDependencies": {
     "@types/cheerio": "^0.22.21",
     "typescript": "^3.9.7"
