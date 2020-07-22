@@ -6,13 +6,16 @@ interface Rastreio {
 };
 
 interface Evento {
-  status: string,
-  data: string,
-  local: string,
-  origem: string,
-  destino: string,
+  status?: string,
+  nome?: string,
+  data?: string,
+  hora?: string,
+  local?: string,
+  origem?: string,
+  destino?: string,
 };
 
+// TODO: return Promise<Rastreio>
 const rastrear = async (codigo: string): Promise<Rastreio | any> => {
   return axios({
     method: 'GET',
@@ -22,12 +25,13 @@ const rastrear = async (codigo: string): Promise<Rastreio | any> => {
       "cache-control": "no-cache",
     },
   }).then(resp => {
-    console.log(convertHtmlToJson(resp.data));
+    const htmlToJson: string = convertHtmlToEvento(resp.data);
+    console.log(htmlToJson);
   });
 };
 
 
-function convertHtmlToJson(htmlString: string) {
+const convertHtmlToEvento: any = (htmlString: string) => {
   const html = cheerio.load(htmlString);
   const elemArray: CheerioElement[] = [];
   html("ul.linha_status").each((_, elem) => {
@@ -40,11 +44,19 @@ function convertHtmlToJson(htmlString: string) {
       .each((_, liElem) => {
         const text = html(liElem).text();
         if (text) {
-          if (text.includes("Status")) mapObj.status = text;
-          if (text.includes("Data")) mapObj.data = text;
-          if (text.includes("Local")) mapObj.local = text;
-          if (text.includes("Origem")) mapObj.origem = text;
-          if (text.includes("Destino")) mapObj.destino = text;
+          mapObj.status = ''; // pendente, acaminho, entregue, falha
+          if (text.includes("Status")) mapObj.nome = text.replace('Status:', '').trim();
+          if (text.includes("Data")) { 
+            const regex = /([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}/gm;
+            mapObj.data = regex.exec(text)?.[0];
+          }
+          if (text.includes("Data")) { 
+            const regex = /([0-9][0-9])(:)([0-9][0-9])/gm;
+            mapObj.hora = regex.exec(text)?.[0];
+          }
+          if (text.includes("Local")) mapObj.local = text.replace('Local:', '').trim();
+          if (text.includes("Origem")) mapObj.origem = text.replace('Origem:', '').trim();
+          if (text.includes("Destino")) mapObj.destino = text.replace('Destino:', '').trim();
         }
       });
     return mapObj;
@@ -52,8 +64,6 @@ function convertHtmlToJson(htmlString: string) {
 
   return elemMap.reverse();
 }
-
-
 
 
 export default rastrear;
