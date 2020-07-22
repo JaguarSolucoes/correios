@@ -44,7 +44,7 @@ const convertHtmlToEvento: any = (htmlString: string) => {
       .each((_, liElem) => {
         const text = html(liElem).text();
         if (text) {
-          mapObj.status = ''; // pendente, acaminho, entregue, falha
+          mapObj.status = ''; // TODO: pendente, acaminho, entregue, falha
           if (text.includes("Status")) mapObj.nome = text.replace('Status:', '').trim();
           if (text.includes("Data")) { 
             const regex = /([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}/gm;
