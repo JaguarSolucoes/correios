@@ -2,6 +2,8 @@
 
 Biblioteca cliente de informações dos correios. 📦
 
+![CI](https://github.com/maxsolvid/correios/workflows/CI/badge.svg?branch=master)
+
 ### Install
 
 npm
