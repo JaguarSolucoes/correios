@@ -1,5 +1,5 @@
 {
-  "name": "correios",
+  "name": "@maxsolvid/correios",
   "version": "0.1.0",
   "description": "Biblioteca cliente de informações dos correios.",
   "main": "dist/index.js",
