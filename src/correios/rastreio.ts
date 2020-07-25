@@ -1,4 +1,4 @@
-import cheerio from 'react-native-cheerio';
+import cheerio from 'cheerio';
 import axios from 'axios';
 
 interface Rastreio {

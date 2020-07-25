@@ -1,6 +1,6 @@
 {
   "name": "@maxsolvid/correios",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Biblioteca cliente de informações dos correios.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -24,10 +24,12 @@
   "homepage": "https://github.com/maxsolvid/correios#readme",
   "devDependencies": {
     "@types/axios": "^0.14.0",
+    "@types/cheerio": "^0.22.21",
     "typescript": "^3.9.7"
   },
   "dependencies": {
     "axios": "^0.19.2",
+    "cheerio": "npm:react-native-cheerio",
     "react-native-cheerio": "^1.0.0-rc.4"
   }
 }
