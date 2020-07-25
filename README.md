@@ -17,3 +17,9 @@ yarn
 ```shell
 yarn add @maxsolvid/correios
 ```
+
+Para usar a tipagem com TypeScript instale também
+
+```shell
+yarn add @types/@maxsolvid/correios
+```
