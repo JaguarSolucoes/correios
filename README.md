@@ -2,20 +2,20 @@
 
 Biblioteca cliente de informações dos correios. 📦
 
-![CI](https://github.com/maxsolvid/correios/workflows/CI/badge.svg?branch=master)
+![CI](https://github.com/JaguarSolucoes/correios/workflows/CI/badge.svg?branch=master)
 
 ## Install
 
 npm
 
 ```shell
-npm i @maxsolvid/correios
+npm i @JaguarSolucoes/correios
 ```
 
 yarn
 
 ```shell
-yarn add @maxsolvid/correios
+yarn add @JaguarSolucoes/correios
 ```
 
 Para usar a tipagem com TypeScript instale também
