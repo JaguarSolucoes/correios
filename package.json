@@ -1,5 +1,5 @@
 {
-  "name": "@maxsolvid/correios",
+  "name": "@JaguarSolucoes/correios",
   "version": "0.1.2",
   "description": "Biblioteca cliente de informações dos correios.",
   "main": "dist/index.js",
@@ -7,7 +7,7 @@
   "scripts": {
     "build": "./node_modules/.bin/tsc"
   },
-  "repository": "https://github.com/maxsolvid/correios.git",
+  "repository": "https://github.com/JaguarSolucoes/correios.git",
   "keywords": [
     "correios",
     "rastreio",
@@ -16,12 +16,12 @@
     "typescript",
     "library"
   ],
-  "author": "maxsolvid",
+  "author": "JaguarSolucoes",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/maxsolvid/correios/issues"
+    "url": "https://github.com/JaguarSolucoes/correios/issues"
   },
-  "homepage": "https://github.com/maxsolvid/correios#readme",
+  "homepage": "https://github.com/JaguarSolucoes/correios#readme",
   "devDependencies": {
     "@types/axios": "^0.14.0",
     "@types/cheerio": "^0.22.21",
