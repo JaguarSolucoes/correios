@@ -9,19 +9,19 @@ Biblioteca cliente de informações dos correios. 📦
 npm
 
 ```shell
-npm i @JaguarSolucoes/correios
+npm i @jaguarsolucoes/correios
 ```
 
 yarn
 
 ```shell
-yarn add @JaguarSolucoes/correios
+yarn add @jaguarsolucoes/correios
 ```
 
 Para usar a tipagem com TypeScript instale também
 
 ```shell
-yarn add @types/@JaguarSolucoes/correios
+yarn add @types/@jaguarsolucoes/correios
 ```
 ## React Native
 

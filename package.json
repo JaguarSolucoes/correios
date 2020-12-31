@@ -1,5 +1,5 @@
 {
-  "name": "@JaguarSolucoes/correios",
+  "name": "@jaguarsolucoes/correios",
   "version": "0.2.0",
   "description": "Biblioteca cliente de informações dos correios.",
   "main": "dist/index.js",
