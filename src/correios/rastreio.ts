@@ -1,14 +1,14 @@
 import cheerio from 'cheerio';
 import axios from 'axios';
 
-interface Rastreio {
+export interface Rastreio {
   eventos?: Evento[],
 };
 
-interface Evento {
+export interface Evento {
   status?: string,
   nome?: string,
-  data?: string,
+  data?: Date,
   hora?: string,
   local?: string,
   origem?: string,
@@ -25,12 +25,13 @@ export const rastrear = async (codigo: string): Promise<Rastreio> => {
     },
   }).then(resp => {
     const eventos: Evento[] = convertHtmlToEvento(resp.data);
+    console.log(resp.data)
     return { eventos } as Rastreio;
   });
 };
 
 
-const convertHtmlToEvento = (htmlString: string): Evento[] => {
+export const convertHtmlToEvento = (htmlString: string): Evento[] => {
   const html = cheerio.load(htmlString);
   const elemArray: CheerioElement[] = [];
   html("ul.linha_status").each((_, elem) => {
@@ -47,7 +48,13 @@ const convertHtmlToEvento = (htmlString: string): Evento[] => {
           if (text.includes("Status")) mapObj.nome = text.replace('Status:', '').trim();
           if (text.includes("Data")) { 
             const regex = /([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}/gm;
-            mapObj.data = regex.exec(text)?.[0];
+
+            const strDate = regex.exec(text)?.[0];
+            if (strDate) {
+              const dateParts = strDate.split("/");
+              // month is 0-based, that's why we need dataParts[1] - 1
+              mapObj.data = new Date(+dateParts[2], Number(dateParts[1]) - 1, +dateParts[0]);
+            }
           }
           if (text.includes("Data")) { 
             const regex = /([0-9][0-9])(:)([0-9][0-9])/gm;
