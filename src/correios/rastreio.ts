@@ -25,7 +25,6 @@ export const rastrear = async (codigo: string): Promise<Rastreio> => {
     },
   }).then(resp => {
     const eventos: Evento[] = convertHtmlToEvento(resp.data);
-    console.log(resp.data)
     return { eventos } as Rastreio;
   });
 };
