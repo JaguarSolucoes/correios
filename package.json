@@ -1,6 +1,6 @@
 {
   "name": "@jaguarsolucoes/correios",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Biblioteca cliente de informações dos correios.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -26,7 +26,7 @@
   "homepage": "https://github.com/JaguarSolucoes/correios#readme",
   "devDependencies": {
     "@types/axios": "^0.14.0",
-    "@types/cheerio": "^0.22.21",
+    "@types/fast-html-parser": "^1.0.1",
     "@types/jest": "^26.0.19",
     "jest": "^26.6.3",
     "ts-jest": "^26.4.4",
@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
-    "cheerio": "npm:react-native-cheerio",
+    "fast-html-parser": "^1.0.1",
     "react-native-cheerio": "^1.0.0-rc.4"
   }
 }
