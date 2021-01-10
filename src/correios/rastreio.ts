@@ -1,4 +1,3 @@
-import cheerio from 'cheerio';
 import axios from 'axios';
 import HTMLParser from 'fast-html-parser';
 
