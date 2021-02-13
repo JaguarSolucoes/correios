@@ -16,17 +16,20 @@ export interface Evento {
 };
 
 export const rastrear = async (codigo: string): Promise<Rastreio> => {
-  return axios({
-    method: 'GET',
-    url: `https://www.linkcorreios.com.br/${codigo}`,
+
+  const response = await axios.get(`https://www.linkcorreios.com.br/${codigo}`, {
     headers: {
-      "content-type": "text; charset=utf-8",
-      "cache-control": "no-cache",
-    },
-  }).then(resp => {
-    const eventos: Evento[] = convertHtmlToEvento(resp.data);
-    return { eventos } as Rastreio;
+    "content-type": "text; charset=utf-8",
+    "cache-control": "no-cache",
+    }
   });
+
+  if (response.status != 200) {
+    return Promise.reject();
+  }
+
+  const eventos: Evento[] = convertHtmlToEvento(response.data);
+  return { eventos } as Rastreio;
 };
 
 export const convertHtmlToEvento = (html: string): Evento[] => {
